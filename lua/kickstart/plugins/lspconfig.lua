@@ -216,7 +216,7 @@ return {
           semanticTokens = true,
         },
         pyright = {},
-        -- rust_analyzer = {},
+        rust_analyzer = {},
         html = {},
         marksman = {},
         sqlls = {},
