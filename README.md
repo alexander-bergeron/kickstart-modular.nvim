@@ -12,6 +12,41 @@ git clone git@github.com:alexander-bergeron/kickstart-modular.nvim.git ~/.config
 
 2. Run `nvim .` to install deps.
 
+## Upstream Sync w/ [kickstart-modular](https://github.com/dam9000/kickstart-modular.nvim.git) 
+
+1. Add an `upstream` for git remote.
+
+```bash
+git remote add upstream https://github.com/dam9000/kickstart-modular.nvim.git
+
+git fetch upstream
+```
+
+2. Checkout new branch from main and rebase with upstream main.
+
+```bash
+git checkout -b sync/upstream main
+
+git rebase upstream/main
+```
+
+3. Resolve any merge conflicts.
+
+* Open vim
+* Type `/>>>>` to search for conflicts
+* Type `n` to go to next instance
+* Choose what the final state you would like, generally you'll keep the top `HEAD` portion to `====...` and then delete the bottom portion.
+
+4. Once all are complete add your files and continue rebase. Repeat steps until all conflicts resolved.
+
+```bash
+git add .
+
+git rebase --continue
+```
+
+NOTE: This has rebased on a new branch - not your main. You can push this up and use it as you see fit. Once you are certain everything works as expected you can rebase main locally. To then update youre remote main after the rebase you'll likely have to do a force push.
+
 ## Introduction
 
 *This is a fork of [nvim-lua/kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) that moves from a single file to a multi file configuration.*
