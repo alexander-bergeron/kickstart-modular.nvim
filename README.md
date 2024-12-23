@@ -2,6 +2,16 @@
 
 *Forked by alexander-bergeron*
 
+## Local Install
+
+1. Clone down the current repo to `~/.config/nvim`.
+
+```bash
+git clone git@github.com:alexander-bergeron/kickstart-modular.nvim.git ~/.config/nvim
+```
+
+2. Run `nvim .` to install deps.
+
 ## Introduction
 
 *This is a fork of [nvim-lua/kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) that moves from a single file to a multi file configuration.*
