@@ -217,6 +217,8 @@ return {
           semanticTokens = true,
         },
         pyright = {},
+        pylsp = {},
+        ruff = {},
         rust_analyzer = {},
         html = {},
         marksman = {},
