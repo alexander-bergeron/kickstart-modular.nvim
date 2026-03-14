@@ -182,6 +182,7 @@ return {
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
+        -- csharp_ls = {},
         gopls = {
           gofumpt = true,
           codelenses = {
@@ -222,6 +223,7 @@ return {
         rust_analyzer = {},
         html = {},
         marksman = {},
+        omnisharp = {},
         sqlls = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -229,7 +231,7 @@ return {
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
+        ts_ls = {},
         --
 
         lua_ls = {
