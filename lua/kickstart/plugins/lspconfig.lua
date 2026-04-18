@@ -218,7 +218,7 @@ return {
           semanticTokens = true,
         },
         pyright = {},
-        pylsp = {},
+        -- pylsp = {}, -- COMMENTED OUT: Conflicts with pyright. Using pyright + ruff combo instead.
         ruff = {},
         rust_analyzer = {},
         html = {},
@@ -262,12 +262,28 @@ return {
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
+        -- Lua
         'stylua', -- Used to format Lua code
+
+        -- Go
         'gofumpt',
         'golines',
         'goimports',
         'gomodifytags',
         'impl',
+
+        -- Python
+        'black',     -- Python code formatter
+        'isort',     -- Python import organizer
+
+        -- JavaScript/TypeScript/Web formats
+        'prettier',  -- Code formatter for JS/TS/HTML/CSS/JSON/Markdown
+
+        -- Rust
+        'rustfmt',   -- Rust code formatter
+
+        -- SQL
+        'sql-formatter', -- SQL code formatter
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
