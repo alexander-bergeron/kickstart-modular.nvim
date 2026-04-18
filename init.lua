@@ -94,8 +94,8 @@ vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
 
 -- Turn on spell check
-vim.opt.spelllang = 'en_us'
-vim.opt.spell = true
+-- vim.opt.spelllang = 'en_us'
+-- vim.opt.spell = true
 
 -- [[ Setting options ]]
 require 'options'

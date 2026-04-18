@@ -1,16 +1,25 @@
 local M = {
   'hrsh7th/nvim-cmp',
   dependencies = {
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-nvim-lua',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-cmdline',
-    'saadparwaiz1/cmp_luasnip',
-    'L3MON4D3/LuaSnip',
+    -- COMMENTED OUT: These are now handled by kickstart/cmp.lua
+    -- 'hrsh7th/cmp-nvim-lsp',
+    -- 'hrsh7th/cmp-nvim-lua',
+    -- 'hrsh7th/cmp-buffer',
+    -- 'hrsh7th/cmp-path',
+    -- 'hrsh7th/cmp-cmdline',
+    -- 'saadparwaiz1/cmp_luasnip',
+    -- 'L3MON4D3/LuaSnip',
   },
 }
 
+-- DISABLED: Custom cmp config removed to prevent overriding kickstart/cmp.lua
+-- The kickstart config provides all core functionality (snippet nav, completion, etc.)
+-- This custom config was overriding it and removing snippet navigation keybinds (<C-l>, <C-h>)
+-- See lua/kickstart/plugins/cmp.lua for the active configuration
+--
+-- Future enhancement: If you want to re-enable cmp-buffer and cmp-cmdline,
+-- they should be added to kickstart/cmp.lua instead of duplicating here
+--[[
 M.config = function()
   local cmp = require 'cmp'
   vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
@@ -52,5 +61,6 @@ M.config = function()
     }),
   })
 end
+]]--
 
 return M

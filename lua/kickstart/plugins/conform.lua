@@ -31,15 +31,34 @@ return {
           lsp_format = lsp_format_opt,
         }
       end,
-      formatters_by_ft = {
+       formatters_by_ft = {
         lua = { 'stylua' },
         go = { 'goimports', 'gofumpt' },
-        -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
-        --
-        -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
-      },
+
+        -- Python: isort (imports) then black (formatting)
+        python = { 'isort', 'black' },
+
+        -- TypeScript/JavaScript
+        javascript = { 'prettier', stop_after_first = true },
+        typescript = { 'prettier', stop_after_first = true },
+        javascriptreact = { 'prettier', stop_after_first = true },
+        typescriptreact = { 'prettier', stop_after_first = true },
+
+        -- Web formats (all handled by prettier)
+        html = { 'prettier', stop_after_first = true },
+        css = { 'prettier', stop_after_first = true },
+        json = { 'prettier', stop_after_first = true },
+        jsonc = { 'prettier', stop_after_first = true },
+
+        -- Rust
+        rust = { 'rustfmt', stop_after_first = true },
+
+        -- SQL
+        sql = { 'sql-formatter', stop_after_first = true },
+
+        -- Markdown
+        markdown = { 'prettier', stop_after_first = true },
+       },
     },
   },
 }
