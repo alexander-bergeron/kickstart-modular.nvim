@@ -216,11 +216,31 @@ return {
       --    :Mason
       --
       -- You can press `g?` for help in this menu.
-      --
-      -- NOTE: Formatters are managed by conform.lua, not mason-tool-installer.
-      -- If you need formatters (stylua, prettier, black, etc), install them via :Mason
-      -- or add them to conform's setup configuration.
       local ensure_installed = vim.tbl_keys(servers or {})
+      vim.list_extend(ensure_installed, {
+        -- Lua
+        'stylua', -- Used to format Lua code
+
+        -- Go
+        'gofumpt',
+        'golines',
+        'goimports',
+        'gomodifytags',
+        'impl',
+
+        -- Python
+        'black',     -- Python code formatter
+        'isort',     -- Python import organizer
+
+        -- JavaScript/TypeScript/Web formats
+        'prettier',  -- Code formatter for JS/TS/HTML/CSS/JSON/Markdown
+
+        -- Rust
+        -- 'rustfmt',   -- Rust code formatter (commented out - not in mason registry)
+
+        -- SQL
+        'sql-formatter', -- SQL code formatter
+      })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
